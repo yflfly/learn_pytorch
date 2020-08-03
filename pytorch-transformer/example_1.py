@@ -15,6 +15,5 @@ Downloading: 100%|██████████| 230/230 [00:00<00:00, 57.2kB/s
 '''
 
 
-# 例如：我在我的 dotvim 文件夹下一个 screenshots 目录，在该目录里有一个 vim-screenshot.jpg 截图。那么添加链接的方式如下
-#
-#  ![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
+
+![image](https://github.com/yflfly/learn_pytorch/tree/master/pytorch-transformer/image/example_1.png)
