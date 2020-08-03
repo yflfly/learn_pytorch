@@ -16,4 +16,3 @@ Downloading: 100%|██████████| 230/230 [00:00<00:00, 57.2kB/s
 
 
 
-![image](https://github.com/yflfly/learn_pytorch/tree/master/pytorch-transformer/image/example_1.png)
