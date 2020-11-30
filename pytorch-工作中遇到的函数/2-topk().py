@@ -29,10 +29,13 @@ def h1():
                            [-0.1785, -4.3339]])
     maxk = max((1,))  # 取top1准确率，若取top1和top5准确率改为max((1,5))
     _, pred = output.topk(maxk, 1, True, True)
+    output_topk = torch.topk(output, 1).indices.squeeze(0).tolist()
     # topk参数中，maxk取得是top1准确率，dim=1是按行取值， largest=1是取最大值
     print(maxk)  # 1
     print(_)
     print(pred)
+    print('*'*100)
+    print(output_topk)  # [[1], [1], [0], [0]]
     '''
     tensor([[ 0.2298],
         [-0.4794],
