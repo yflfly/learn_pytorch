@@ -64,3 +64,16 @@ False
 True
 <SumBackward0 object at 0x7f1b24845f98>
 '''
+
+# 梯度
+# 反向传播，因为 out 是一个标量，因此 out.backward() 和 out.backward(torch.tensor(1.)) 等价。
+# out.backward() # 自动计算所有的梯度
+
+# 输出导数 d(out)/dx
+print(x.grad)
+
+# 输出
+'''
+tensor([[4.5000, 4.5000],
+        [4.5000, 4.5000]])
+'''
