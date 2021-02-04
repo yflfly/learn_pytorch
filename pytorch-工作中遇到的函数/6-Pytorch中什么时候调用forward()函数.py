@@ -9,9 +9,6 @@ Module类是nn模块里提供的一个模型构造类，是所有神经网络模
 这里定义的MLP类重载了Module类的__init__函数和forward函数。
 它们分别用于创建模型参数和定义前向计算。前向计算也即正向传播。
 '''
-import torch
-from torch import nn
-
 
 class MLP(nn.Module):
     # 声明带有模型参数的层，这里声明了两个全连接层
