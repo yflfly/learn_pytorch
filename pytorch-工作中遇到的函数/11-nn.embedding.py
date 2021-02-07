@@ -57,6 +57,9 @@ lst = ['I am a boy.', 'How are you?', 'I am very lucky.']  # 这个mini-batch有
 # 第一步首先要做的是：将句子标准化，所谓标准化，指的是：大写转小写，标点分离，这部分很简单就略过。经处理后，mini-batch变为：
 lst_1 = [['i', 'am', 'a', 'boy', '.'], ['how', 'are', 'you', '?'], ['i', 'am', 'very', 'lucky', '.']]
 
-
-
+'''
+可见，这个list的元素成了一个个list。还要做一步：将上面的三个list按单词数从多到少排列。标点也算单词。至于为什么，后面会说到。
+那就变成了：
+'''
+batch = [['i', 'am', 'a', 'boy', '.'], ['i', 'am', 'very', 'lucky', '.'], ['how', 'are', 'you', '?']]
 
