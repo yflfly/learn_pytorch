@@ -29,3 +29,34 @@ sparse (bool, optional) – 若为True,则与权重矩阵相关的梯度转变�
 链接：https://www.jianshu.com/p/63e7acc5e890
 
 '''
+# 下面是关于Embedding的使用
+'''
+torch.nn包下的Embedding，作为训练的一层，随模型训练得到适合的词向量
+'''
+# 建立词向量层
+n_vocabulary = 100
+embedding_size = 5
+embed = torch.nn.Embedding(n_vocabulary, embedding_size)
+print(embed)  # Embedding(100, 5)
+
+'''
+找到对应的词向量放进网络：词向量的输入应该是什么样子
+
+实际上，上面通过随机初始化建立了词向量层后，建立了一个“二维表”，存储了词典中每个词的词向量。
+每个mini-batch的训练，都要从词向量表找到mini-batch对应的单词的词向量作为RNN的输入放进网络。
+那么怎么把mini-batch中的每个句子的所有单词的词向量找出来放进网络呢，输入是什么样子，输出是什么样子？
+'''
+
+'''
+首先我们知道肯定先要建立一个词典，建立词典的时候都会建立一个dict：word2id：存储单词到词典序号的映射。
+假设一个mini-batch如下所示：
+
+'''
+lst = ['I am a boy.', 'How are you?', 'I am very lucky.']  # 这个mini-batch有3个句子，即batch_size=3
+
+# 第一步首先要做的是：将句子标准化，所谓标准化，指的是：大写转小写，标点分离，这部分很简单就略过。经处理后，mini-batch变为：
+lst_1 = [['i', 'am', 'a', 'boy', '.'], ['how', 'are', 'you', '?'], ['i', 'am', 'very', 'lucky', '.']]
+
+
+
+
