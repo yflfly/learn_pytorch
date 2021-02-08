@@ -31,3 +31,12 @@ RNN输入的是序列，一次把批次的所有句子都输入了，得到的ou
 则每个时间步输入到这个整个RNN模块的维度是[batch_size,input_dim]
 
 '''
+'''
+问题1：这里out、ht的size是多少呢？
+回答：out:6 * 3 * 10, ht: 2 * 3 * 10
+out的输出维度[seq_len,batch_size,output_dim]，
+ht的维度[num_layers * num_directions, batch, hidden_size],如果是单向单层的RNN那么一个句子只有一个hidden。
+
+问题2：out[-1]和ht[-1]是否相等？
+回答：相等，隐藏单元就是输出的最后一个单元，可以想象，每个的输出其实就是那个时间步的隐藏单元
+'''
