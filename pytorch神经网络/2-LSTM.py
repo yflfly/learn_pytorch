@@ -2,6 +2,8 @@
 import torch
 import torch.nn as nn
 
+# LSTM的输出多了一个memory单元
+
 # 输入维度 50，隐层100维，两层
 lstm_seq = nn.LSTM(50, 100, num_layers=2)
 # 输入序列seq= 10，batch =3，输入维度=50
