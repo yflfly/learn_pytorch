@@ -116,3 +116,17 @@ embed_batch = embed(batch)
 维度的前两维和前面讲的是一致的。可见多了一个第三维，这就是词向量维度。所以，Embedding层的输出是：
 [seq_len,batch_size,embedding_size]
 '''
+
+'''
+一些注意的点
+nn.embedding的输入只能是编号，不能是隐藏变量，比如one-hot，或者其它，这种情况，
+可以自己建一个自定义维度的线性网络层，参数训练可以单独训练或者跟随整个网络一起训练（看实验需要）
+
+如果你指定了padding_idx，注意这个padding_idx也是在num_embeddings尺寸内的，比如符号总共有500个，
+指定了padding_idx，那么num_embeddings应该为501
+
+embedding_dim的选择要注意，根据自己的符号数量，举个例子，如果你的词典尺寸是1024，
+那么极限压缩（用二进制表示）也需要10维，再考虑词性之间的相关性，怎么也要在15-20维左右，
+虽然embedding是用来降维的，但是>- 也要注意这种极限维度，结合实际情况，合理定义
+
+'''
