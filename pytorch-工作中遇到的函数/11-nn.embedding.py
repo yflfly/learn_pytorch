@@ -101,3 +101,18 @@ batch = list(itertools.zip_longest(batch, fillvalue=PAD))
 # fillvalue就是要填充的值，强制转成list
 # 经过变换，结果应该是：
 batch = [[3, 6, 4], [6, 4, 5], [5, 7, 8], [6, 9, 7], [7, 5, 1], [1, 1, 2]]
+
+# batch还要转成LongTensor：
+batch = torch.LongTensor(batch)
+
+'''
+这里的batch就是词向量层的输入。
+词向量层的输出是什么样的？
+好了，现在使用建立了的embedding直接通过batch取词向量了，如：
+'''
+embed_batch = embed(batch)
+
+'''
+维度的前两维和前面讲的是一致的。可见多了一个第三维，这就是词向量维度。所以，Embedding层的输出是：
+[seq_len,batch_size,embedding_size]
+'''
