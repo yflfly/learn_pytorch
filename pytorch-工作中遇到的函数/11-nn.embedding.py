@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import itertools
 
 '''
 函数调用形式：
@@ -77,3 +78,26 @@ batch = [[3, 6, 5, 6, 7, 1], [6, 4, 7, 9, 5, 1], [4, 5, 8, 7, 1]]
 
 # 那么长度要更新：
 lens = [6, 6, 5]
+'''
+很显然，这个mini-batch中的句子长度不一致！所以为了规整的处理，对长度不足的句子，进行填充。\
+填充PAD假设序号是2，填充之后为：
+'''
+batch = [[3, 6, 5, 6, 7, 1], [6, 4, 7, 9, 5, 1], [4, 5, 8, 7, 1, 2]]
+'''
+这样就可以直接取词向量训练了吗?
+不能！上面batch有3个样例，RNN的每一步要输入每个样例的一个单词，一次输入batch_size个样例，
+所以batch要按list外层是时间步数(即序列长度)，list内层是batch_size排列。即batch的维度应该是：
+[seq_len,batch_size]
+[seq_len,batch_size]
+[seq_len,batch_size]
+'''
+
+'''
+怎么变换呢？变换方法可以是：使用itertools模块的zip_longest函数。
+而且，使用这个函数，连填充这一步都可以省略，因为这个函数可以实现填充！
+'''
+PAD = 2
+batch = list(itertools.zip_longest(batch, fillvalue=PAD))
+# fillvalue就是要填充的值，强制转成list
+# 经过变换，结果应该是：
+batch = [[3, 6, 4], [6, 4, 5], [5, 7, 8], [6, 9, 7], [7, 5, 1], [1, 1, 2]]
