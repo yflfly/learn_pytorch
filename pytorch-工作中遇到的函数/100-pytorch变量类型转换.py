@@ -1,3 +1,4 @@
+'''
 Pytorch的数据类型为各式各样的Tensor,Tensor可以理解为高维矩阵。与Numpy中的Array类似。Pytorch中的tensor又包括CPU上的数据类型和GPU上的数据类型，一般GPU上的Tensor是CPU上的Tensor加cuda()函数得到。通过使用Type函数可以查看变量类型。一般系统默认是torch.FloatTensor类型。例如data = torch.Tensor(2,3)是一个2*3的张量，类型为FloatTensor; data.cuda()就转换为GPU的张量类型，torch.cuda.FloatTensor类型。
 
 下面简单介绍一下Pytorch中变量之间的相互转换。
@@ -23,3 +24,4 @@ Pytorch的数据类型为各式各样的Tensor,Tensor可以理解为高维矩阵
 Tensor---->Numpy  可以使用 data.numpy()，data为Tensor变量
 
 Numpy ----> Tensor 可以使用torch.from_numpy(data)，data为numpy变量
+'''
