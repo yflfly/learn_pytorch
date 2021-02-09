@@ -19,3 +19,11 @@ dim (int, optional) – the dimension to sort along 维度，对于二维数据�
 descending (bool, optional) – controls the sorting order (ascending or descending)
     降序，descending=True 从大到小排序，descending=False 从小到大排序，默认 descending=Flase
 '''
+
+# 例子
+x = torch.randn(3, 4)
+print(x)  # 初始值，始终不变
+
+sorted, indices = torch.sort(x)  # 按行从小到大排序
+print(sorted)
+print(indices)
