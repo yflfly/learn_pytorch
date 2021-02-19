@@ -25,4 +25,6 @@ data.cuda()就转换为GPU的张量类型，torch.cuda.FloatTensor类型。
 （5）Tensor与Numpy Array之间的转换
 Tensor---->Numpy  可以使用 data.numpy()，data为Tensor变量
 Numpy ----> Tensor 可以使用torch.from_numpy(data)，data为numpy变量
+
+tensor和numpy的互相转换的原因：numpy操作简单，但是网络前向只能是tensor类型，各有优势，所以需要相互转换补充
 '''
