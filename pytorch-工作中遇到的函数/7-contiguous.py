@@ -3,12 +3,12 @@ import torch
 
 '''
 在pytorch中，只有很少几个操作是不改变tensor的内容本身，而只是重新定义下标与元素的对应关系的
-换句话说，这种操作不进行数据拷贝和数据的改变，变得是元数据
+换句话说，这种操作不进行数据拷贝和数据的改变，变的是元数据
 这些操作是：
 narrow()、view()、expand()和transpose()
 '''
 '''
-举个栗子，在使用transpose()进行转置操作时，pytorch并不会创建新的、转置后的tensor，
+举个例子，在使用transpose()进行转置操作时，pytorch并不会创建新的、转置后的tensor，
 而是修改了tensor中的一些属性（也就是元数据），使得此时的offset和stride是与转置tensor相对应的。
 转置的tensor和原tensor的内存是共享的！
 '''
