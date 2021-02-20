@@ -3,10 +3,10 @@
 2）torch.load：使用pickle的 unpickling 功能将pickle对象文件反序列化到内存。此功能还可以有助于设备加载数据。
 3）torch.nn.Module.load_state_dict ：使用反序列化函数 state_dict 来加载模型的参数字典。
 
-2、模型保存
+2、模型保存state_dict （）
 torch.save(model.state_dict(), PATH)
 
-3、模型加载
+3、模型加载state_dict （）
 model=TheModelClass(*args, **kwargs)
 model.load_state_dict(torch.load(PATH))
 model.eval()
