@@ -16,3 +16,5 @@ model.eval()
 在PyTorch中最常见的模型保存使‘.pt’或者是‘.pth’作为模型文件扩展名
 
 请记住，在运行推理之前，务必调用model.eval()去设置dropout和batch normalization层为评估模式。如果不这么做，可能导致模型推断结果不一致
+
+load_state_dict()函数只接受字典对象，而不是保存对象的路径。这就意味着在你传给load_state_dict()函数之前，你必须反序列化 你保存的state_dict 。例如，你无法通过model.load_state_dict(PATH)来加载模型
