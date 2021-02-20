@@ -26,7 +26,7 @@ model = torch.nn.Sequential(
 loss_fn = torch.nn.MSELoss(reduction='sum')
 
 learning_rate = 1e-4
-for t in range(500):
+for t in range(10):
     # 前向传播：通过向模型传入x计算预测的y。
     # 模块对象重载了__call__运算符，所以可以像函数那样调用它们。
     # 这么做相当于向模块传入了一个张量，然后它返回了一个输出张量。
@@ -46,3 +46,15 @@ for t in range(500):
     with torch.no_grad():
         for param in model.parameters():
             param -= learning_rate * param.grad
+'''
+输出结果如下所示：
+1 633.3604125976562
+2 588.6708374023438
+3 549.4701538085938
+4 514.5612182617188
+5 483.45794677734375
+6 455.3669738769531
+7 429.564453125
+8 405.6400451660156
+9 383.3856506347656
+'''
