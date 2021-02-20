@@ -1,12 +1,18 @@
-当保存和加载模型时，需要熟悉三个核心功能：
+1、当保存和加载模型时，需要熟悉三个核心功能：
 1）torch.save ：将序列化对象保存到磁盘。此函数使用Python的 pickle 模块进行序列化。使用此函数可以保存如模型、tensor、字典等各种对象。
-2）torch.load ：使用pickle的 unpickling 功能将pickle对象文件反序列化到内存。此功能还可以有助于设备加载数据。
+2）torch.load：使用pickle的 unpickling 功能将pickle对象文件反序列化到内存。此功能还可以有助于设备加载数据。
 3）torch.nn.Module.load_state_dict ：使用反序列化函数 state_dict 来加载模型的参数字典。
 
-模型保存：
+2、模型保存
 torch.save(model.state_dict(), PATH)
 
-模型加载：
-model = TheModelClass(*args, **kwargs)
+3、模型加载
+model=TheModelClass(*args, **kwargs)
 model.load_state_dict(torch.load(PATH))
 model.eval()
+
+注：
+当保存好模型用来推断的时候，只需要保存模型学习到的参数，使用torch.save()函数来保存模型state_dict,它会给模型恢复提供 最大的灵活性，这就是为什么要推荐它来保存的原因。
+在PyTorch中最常见的模型保存使‘.pt’或者是‘.pth’作为模型文件扩展名
+
+请记住，在运行推理之前，务必调用model.eval()去设置dropout和batch normalization层为评估模式。如果不这么做，可能导致模型推断结果不一致
